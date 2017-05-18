@@ -1,15 +1,12 @@
 var React = require('react');
 var Navigation = require('Navigation');
-var Clock = require('Clock');
 
 var Main = (props) => {
   return (
     <div>
     <Navigation/>
-      <div>
-        <div>
-          <p>Main.jsx Rendered</p>
-          <Clock/>
+      <div className="row">
+        <div className="column small-centered medium-6 large-4">
           {props.children}
         </div>
       </div>
