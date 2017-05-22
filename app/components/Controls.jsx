@@ -1,8 +1,8 @@
 var React = require('react');
 
 var Controls = React.createClass({
-  propTypes: {
-    countdownStatus: React.propTypes.string.isRequired
+  propTypes: { //need prop of paused or started: want to render pause when started and start when paused
+    countdownStatus: React.PropTypes.string.isRequired //controls cant do anything without this prop, so its required
   },
   render: function () {
     var {countdownStatus} = this.props;
