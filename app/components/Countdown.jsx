@@ -25,6 +25,10 @@ var Countdown = React.createClass({
       }
     }
   },
+  componentWillUnmount: function() { //fires before component visually removed from browser.
+    clearInterval(this.timer); //stops clock from continuing counting
+    this.timer = undefined;
+  },
   startTimer: function () {
     //setInterval triggers function after certain amount of time
     this.timer = setInterval(() => {
@@ -32,6 +36,10 @@ var Countdown = React.createClass({
       this.setState({
         count: newCount >= 0 ? newCount : 0 //ternary operator so we dont get negative #. stop at 0
       });
+
+      if(newCount === 0) {
+        this.setState({countdownStatus: 'stopped'});
+      }
     }, 1000);
   },
   handleSetCountdown: function (seconds) {
